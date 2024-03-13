@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Advertisments.Models.Ads>
+
+@{
+    ViewData["Title"] = "ShowAds";
+}
+
+
+<h1>ShowAds</h1>
+
+<div class="d-flex flex-row w-50">
+    <div class="flex-column d-flex form-control ">
+        <p>Chose exchange rate</p>
+        <form asp-action="GetExRate">
+            <div class="form-control">
+                <select class="form-control" id="rate" name="currency">
+                    <option value="AUD">AUD</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="THB">THB</option>
+                    <option value="DKK">DKK</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <input type="submit" value="Get rate" class="btn btn-primary" />
+            </div>
+            
+        </form>
+    </div>
+    @if(ViewBag.rate != null)
+    {
+        <div class="mx-5">
+            <p>1 kr equals: @ViewBag.rate @ViewBag.unit</p>
+        </div>
+    }
+    
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdvertiserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceAd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdvertiserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceAd)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAd", new {  id = item.Id}) |
+                @Html.ActionLink("Delete", "DeleteAd", new { id = item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

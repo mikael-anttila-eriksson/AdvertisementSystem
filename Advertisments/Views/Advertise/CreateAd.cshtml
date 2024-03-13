@@ -1,0 +1,55 @@
+﻿@model Advertisments.Models.Ads
+
+@{
+    ViewData["Title"] = "CreateAd";
+}
+
+<h1>CreateAd</h1>
+
+<h4>Ads</h4>
+@if(Model.SubscriberId != null)
+{
+    <p>Your subscriber ID: @Model.SubscriberId</p>
+}
+@if (Model.AdvertiserId != null)
+{
+    <p>Your Company ID: @Model.AdvertiserId</p>
+}
+<p>Price for ad: @Model.PriceAd Kr</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(m => m.SubscriberId)
+            @Html.HiddenFor(m => m.AdvertiserId)
+            @Html.HiddenFor(m => m.PriceAd)
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriceProduct" class="control-label"></label>
+                <input asp-for="PriceProduct" class="form-control" />
+                <span asp-validation-for="PriceProduct" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShowAds">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

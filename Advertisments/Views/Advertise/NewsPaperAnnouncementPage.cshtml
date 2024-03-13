@@ -1,0 +1,43 @@
+﻿
+
+<h2>Welcome to the newspapers announcement page!</h2>
+<p class="my-4">
+    Please specify if your are a subscriber or a company,
+    then create your adrvertisement.
+</p>
+
+@{
+   
+}
+
+<!-- Form-control gives a border -->
+<div class="form-control d-flex flex-shrink">
+    <form asp-action="NewsPaperAnnouncementPage">
+        <div class="form-control m-1">
+            <div class="form-check">
+                <!--This do give som value to set form-check here! -->
+                <input class="form-check-label" type="radio" value="false" name="isCompany" />
+                <label class="form-check-label" for="isCompany">
+                    Subscriber
+                </label>
+            </div>
+            <div>
+                <label for="subNumber" class="form-label">Subscriber number</label>
+                <input class="form-control" type="text" name="subNumber" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-control m-1 mt-3">
+            <div class="form-check my-3">
+                <input class="form-check-label" type="radio" value="true" name="isCompany" />
+                <label class="form-check-label" for="isCompany">
+                    Company
+                </label>
+            </div>
+        </div>        
+        <div class="m-2 mt-3">
+            <button type="submit" class="btn btn-primary">Continue</button>
+        </div>
+    </form>
+</div>
+    
+

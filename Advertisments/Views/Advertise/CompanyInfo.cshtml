@@ -1,0 +1,101 @@
+﻿@model Advertisments.ViewModels.AdvertiserViewModel
+@using Advertisments.Enums;
+
+@{
+    ViewData["Title"] = "CompanyInfo";
+}
+
+<h1>CompanyInfo</h1>
+
+<h4>AdvertiserViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="CompanyInfo" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>         
+            <div class="col-5 form-group">                
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-5 form-group">
+                    <label asp-for="OrganizationNumber" class="control-label"></label>
+                    <input asp-for="OrganizationNumber" class="form-control" placeholder="xxxxxx-xxxx" autocomplete="off" />
+                    <span asp-validation-for="OrganizationNumber" class="text-danger"></span>
+
+                </div>
+                <div class="col-2">
+                    <p>First<br />number<br />represent:</p>
+                </div>
+                <div class="col">
+                    <p>5 - Aktiebolag.<br/>9 - Handelsbolag.<br />20 - Statliga myndigheter</p>
+                </div>
+            </div>
+            
+            <div class="col-5 form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="row my-2">
+                <div class="col-5">
+                    <p class="my-1">Delivery address</p>                    
+                    <div class="row form-group">
+                        <label asp-for="DeliveryAddress.Address" class="control-label"></label>
+                        <input asp-for="DeliveryAddress.Address" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="DeliveryAddress.Address" class="text-danger"></span>
+                    </div>
+                    <div class="row form-group">
+                        <label asp-for="DeliveryAddress.PostNumber" class="control-label"></label>
+                        <input asp-for="DeliveryAddress.PostNumber" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="DeliveryAddress.PostNumber" class="text-danger"></span>
+                    </div>
+                    <div class="row form-group">
+                        <label asp-for="DeliveryAddress.City" class="control-label"></label>
+                        <input asp-for="DeliveryAddress.City" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="DeliveryAddress.City" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <input class="form-check-input my-1" type="checkbox" name="useBilling" value="true"/>
+                    <label class="form-check-label">
+                        (Optional) - Billing address
+                    </label>                    
+                    <div class="form-group">
+                        <label class="control-label" for="address">Address</label>
+                        <input class="form-control" type="text" name="address" autocomplete="off"/>
+                        @*<label asp-for="BillingAddress.Address" class="control-label"></label>
+                        <input asp-for="BillingAddress.Address" class="form-control" autocomplete="off"/>  *@                      
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="postNr">Post number</label>
+                        <input class="form-control" type="number" name="postNr" autocomplete="off" />
+                        @*<label asp-for="BillingAddress.PostNumber" class="control-label"></label>
+                        <input asp-for="BillingAddress.PostNumber" class="form-control" formnovalidate autocomplete="off" /> *@                       
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="city">City</label>
+                        <input class="form-control" type="text" name="city" autocomplete="off" />
+                        @*<label asp-for="BillingAddress.City" class="control-label"></label>
+                        <input asp-for="BillingAddress.City" class="form-control" autocomplete="off" /> *@                       
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="NewsPaperAnnouncementPage">Back to start</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

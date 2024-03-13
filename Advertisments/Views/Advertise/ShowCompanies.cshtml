@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Advertisments.ViewModels.AdvertiserViewModel>
+
+@{
+    ViewData["Title"] = "ShowCompanies";
+}
+
+<h1>ShowCompanies</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganizationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryAddress.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryAddress.PostNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryAddress.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingAddress.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingAddress.PostNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingAddress.City)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryAddress.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryAddress.PostNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryAddress.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingAddress.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingAddress.PostNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingAddress.City)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
