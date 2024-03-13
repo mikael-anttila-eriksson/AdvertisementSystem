@@ -1,4 +1,8 @@
-The advertisement system uses the Subscriber Web-API to fetch information about the Subscribers (people reading the newspaper). Only a Subscriber or Advertiser/Company can create Ads in the paper.
+Two collaborating systems: 
+* Web-API with Subscribers
+* Advertisment system that "uses" the Web-API
+
+The Advertisement system handles Subsrcibers and Companies that want to create ads in the imaginary newspaper. The Subscriber Web-API has information about the Subscribers (people reading the newspaper).
 
 The ER-Diagram below show the relationsship between Subscribers, Ads and Advertisers. An Ad is either connected (has a Foreign key) to a Subscriber or an Advertiser.
 
